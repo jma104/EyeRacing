@@ -9,6 +9,8 @@ Se ha desarrollado como parte del Trabajo Final de Grado "Desarrollo de videojue
 para el Grado en Ingeniería Informática de la Universidad de Alicante, llevado a cabo por el alumno Javier Martínez Albaladejo
 y supervisado por los tutores Miguel Ángel Teruel Martínez y Juan Carlos Trujillo Mondejar.
 
+Este videojuego no almacena de ninguna manera ni transfiere a otras máquinas ningún tipo de datos personales ni de eye tracking.
+
 # Uso
 
 Es un proyecto de Unity y se debe importar como cualquier otro, mediante la opción "Open / Add project from disk" de Unity Hub.
