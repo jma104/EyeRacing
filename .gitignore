@@ -76,3 +76,4 @@ crashlytics-build.properties
 WebGL Builds
 connectwebgl.zip
 webgl_sharing
+/tobii_*.dll
