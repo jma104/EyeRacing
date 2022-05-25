@@ -57,7 +57,7 @@ public class PlayerTouchGroundListener : MonoBehaviour
                     if (isEffectActive && isTouchingGround) {
                         float diff = currentTime - effectEndTime;
                         float w = diff / pulsationTime;
-                        float pct = Mathf.Sin(w);
+                        float pct = Mathf.Sin(2f * Mathf.PI * w);
                         vignette.intensity.Override(maxIntensity - pct * pulsationIntensity);
                     }
                 }

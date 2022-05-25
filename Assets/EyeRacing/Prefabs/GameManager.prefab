@@ -47,17 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 0}
-  gameStatus: {fileID: 0}
   effectDurationOn: 2
   effectDurationOff: 0.5
   maxIntensity: 2
   pulsationIntensity: 0.2
-  pulsationTime: 0.5
-  isEffectActive: 0
-  effectEndTime: 0
-  lastChangeTime: 0
-  timeDiff: 0
-  pct: 0
+  pulsationTime: 3
   PlayerStartedtouchingGround:
     m_PersistentCalls:
       m_Calls:
@@ -106,6 +100,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   checkpointContainer: {fileID: 0}
   waitSecondsBeforeStart: 3
+  maxTimeOnGround: 10
 --- !u!114 &183841949
 MonoBehaviour:
   m_ObjectHideFlags: 0
