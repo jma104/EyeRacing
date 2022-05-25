@@ -8,7 +8,7 @@ using Tobii.Gaming;
 public class PlayerTouchGroundListener : MonoBehaviour
 {
     public PostProcessVolume effect;
-    public GameStatus gameStatus;
+    private GameStatus gameStatus;
     public float effectDurationOn = 0f;
     public float effectDurationOff = 0f;
     public float maxIntensity = 1f;
@@ -18,11 +18,11 @@ public class PlayerTouchGroundListener : MonoBehaviour
     private bool isTouchingRoad = false;
     private bool isIncreasing = false;
     private bool isDecreasing = false;
-    public bool isEffectActive = false;  // Either increasing or pulsing but not decreasing.
-    public float effectEndTime = 0f;
-    public float lastChangeTime = 0f;
-    public float timeDiff = 0f;
-    public float pct = 0f;
+    private bool isEffectActive = false;  // Either increasing or pulsing but not decreasing.
+    private float effectEndTime = 0f;
+    private float lastChangeTime = 0f;
+    private float timeDiff = 0f;
+    private float pct = 0f;
     public UnityEvent PlayerStartedtouchingGround;
     public UnityEvent PlayerStoppedtouchingGround;
 
