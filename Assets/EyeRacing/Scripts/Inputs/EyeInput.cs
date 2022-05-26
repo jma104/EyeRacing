@@ -15,11 +15,11 @@ namespace KartControl {
         public float turnEnd = 0.7f;
 
         [Tooltip("Current acceleration.")]
-        public float accelPct = 0f;
+        private float accelPct = 0f;
         [Tooltip("Current turning acceleration.")]
-        public float turnPct = 0f;
+        private float turnPct = 0f;
         [Tooltip("Current brake state.")]
-        public bool brake = false;
+        private bool brake = false;
 
         [Tooltip("Whether this input is the active one.")]
         public bool isactive = true;
