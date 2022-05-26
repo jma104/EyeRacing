@@ -20,8 +20,7 @@ public class TigerController : MonoBehaviour
     public float keepAheadTolerance = 3.0f;
     public float startSeekingAgainDistance = 80.0f;
 
-    public Vector3 acceleration;
-    public Vector3 newVel;
+    private Vector3 newVel;
 
     private ArcadeKart target;
     private Animator animator;
@@ -40,13 +39,12 @@ public class TigerController : MonoBehaviour
             diff.y = 0;
             float sqDistance = diff.sqrMagnitude;
             AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
-            AnimatorTransitionInfo transition = animator.GetAnimatorTransitionInfo(0);
-            nextState(targetSpeed, diff, sqDistance, state, transition);
-            move(targetSpeed, diff, sqDistance, state, transition);
+            nextState(targetSpeed, diff, sqDistance, state);
+            move(targetSpeed, diff, sqDistance, state);
         }
     }
 
-    public void nextState(float targetSpeed, Vector3 diff, float sqDistance, AnimatorStateInfo state, AnimatorTransitionInfo transition) {
+    private void nextState(float targetSpeed, Vector3 diff, float sqDistance, AnimatorStateInfo state) {
         if (sqDistance < startRunningAwayDistance * startRunningAwayDistance) {
             animator.SetTrigger("Away");
         } else if (state.IsName("idle")) {
@@ -67,7 +65,7 @@ public class TigerController : MonoBehaviour
         animator.SetFloat("Speed", _rigidbody.velocity.magnitude);
     }
 
-    private void move(float targetSpeed, Vector3 diff, float sqDistance, AnimatorStateInfo state, AnimatorTransitionInfo transition) {
+    private void move(float targetSpeed, Vector3 diff, float sqDistance, AnimatorStateInfo state) {
         float finalVel = 0.0f;
         float accel = 1.0f;
         newVel = Vector3.zero;
@@ -98,13 +96,6 @@ public class TigerController : MonoBehaviour
             }
         }
         if (Vector3.Dot(newVel, _rigidbody.velocity) < 0f || finalVel * finalVel < _rigidbody.velocity.sqrMagnitude) accel = maxBrake;
-
-        // Vector3 velDiff = newVel - _rigidbody.velocity;
-        // acceleration = Vector3.ClampMagnitude(velDiff / Time.fixedDeltaTime, accel);
-        // _rigidbody.AddForce(2.3f * acceleration, ForceMode.Acceleration);
-
-
-        
         _rigidbody.velocity = Vector3.MoveTowards(_rigidbody.velocity, new Vector3(newVel.x, _rigidbody.velocity.y, newVel.z), 2.35f * accel * Time.deltaTime);
 
         if (newVel != Vector3.zero) {
